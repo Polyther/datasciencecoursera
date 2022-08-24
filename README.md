@@ -13,3 +13,4 @@ The steps the file will take to complete the data-tidying task are as follows, i
 
 5:create a last tidy data set by using summarise_each() function to calculate the average values of each variables, grouping first by subject ID and then by activities. 
 
+e
