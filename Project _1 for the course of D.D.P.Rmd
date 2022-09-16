@@ -1,0 +1,31 @@
+---
+title: "An interactive map produced by Leaflet"
+output: html_document
+date: '2022-09-16'
+Aythoer: HU TANG
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instructions
+
+This report is about the population of the city of Beijing and Shanghai in China, which is demonstrated by the Circle Sizes.
+
+
+
+```{r data, echo=FALSE}
+### Create a dataset on the two cities' population. 
+pdata <- data.frame(city = c('Beijing', 'Shanghai'), population = c(1500, 2100), Latitude = c(39.55, 31.22), Longitude = c(+116.24, +121.48))
+```
+
+### The map
+```{r map, echo=FALSE}
+library(leaflet)
+map <- pdata %>% leaflet() %>% addTiles() %>% addMarkers(lat = pdata$Latitude, lng = pdata$Longitude, popup = paste(pdata$city, '<br>Population:', formatC(pdata$population, format ='d', big.mark = ','))) %>% addCircles(lat = pdata$Latitude, lng = pdata$Longitude, weight =1, radius = pdata$population*100)
+map
+```
+
+
+
